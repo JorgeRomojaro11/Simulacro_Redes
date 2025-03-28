@@ -121,16 +121,10 @@ El modelo **TCP/IP** tiene **4 capas**, cada una con un rol específico:
    - Convierte paquetes en tramas y los envía físicamente (cableado o Wi-Fi).  
    - Usa direcciones MAC para identificar dispositivos en la red local.  
 
-#### 📌 Proceso inverso en la recepción:
+#### Proceso inverso en la recepción:
 1. **Capa de Acceso a Red** recibe los datos y los envía a la **Capa de Internet**.  
 2. **Capa de Internet** revisa la dirección IP y pasa los datos a la **Capa de Transporte**.  
 3. **Capa de Transporte** reensambla los datos y los pasa a la **Capa de Aplicación**.  
 4. **Capa de Aplicación** entrega los datos a la aplicación correspondiente.  
 
----
-
-### 📌 Conclusión
-Este simulacro cubre los conceptos esenciales de redes, incluyendo modelos de comunicación, protocolos y procesos clave como la resolución de nombres y la capa de transporte.  
-
-📌 **Referencias**:  
-Este contenido se basa en la teoría de redes y protocolos TCP/IP y OSI.  
+ 
