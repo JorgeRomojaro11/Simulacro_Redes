@@ -1,6 +1,3 @@
-# Simulacro_Redes
-
-
 # Simulacro Redes
 
 ## Parte I: Conceptos y Teoría
