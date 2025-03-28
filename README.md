@@ -124,170 +124,114 @@ El modelo **TCP/IP** tiene **4 capas**, cada una con un rol específico:
 3. **Capa de Transporte** reensambla los datos y los pasa a la **Capa de Aplicación**.  
 4. **Capa de Aplicación** entrega los datos a la aplicación correspondiente.  
 
-# Parte II: Capa Física y Ejercicios Prácticos 
+# Parte II: Capa Física y Ejercicios Prácticos  
 
-## Pregunta 7: Cálculo de Tasa de Transmisión Máxima (Fórmula de Shannon) 
+## Pregunta 7: Cálculo de Tasa de Transmisión Máxima (Fórmula de Shannon)  
 
-Utiliza la fórmula de Shannon: 
+La fórmula de Shannon se define como:  
 
-\[
-C = B \times \log_2(1 + SNR)
-\]
+**C = B × log₂(1 + SNR)**  
 
-donde: 
+Donde:  
+- **C** es la tasa de transmisión máxima en bits por segundo (bps).  
+- **B** es el ancho de banda en hertz (Hz).  
+- **SNR** es la relación señal a ruido en escala lineal.  
 
-- **C** es la tasa de transmisión máxima (bps). 
-- **B** es el ancho de banda (Hz). 
-- **SNR** es la relación señal a ruido en escala lineal (recuerda que \( SNR_{\text{lineal}} = 10^{SNR_{\text{dB}} / 10} \)).
+### Enunciado:  
+Calcular la tasa de transmisión máxima para un canal con:  
+- **Ancho de banda** = 500 MHz  
+- **SNR** = 20 dB  
 
-### Enunciado:
-Calcula la tasa de transmisión máxima para un canal con las siguientes características:
+### Cálculos:  
 
-- **Ancho de banda:** 500 MHz 
-- **SNR:** 20 dB 
+1. **Convertir SNR de dB a escala lineal**  
+   - Fórmula: **SNR_lineal = 10^(SNR_dB / 10)**  
+   - Sustituyendo: **SNR_lineal = 10^(20 / 10) = 100**  
 
-### Cálculos:
-
-#### 1. Convertir el SNR de dB a escala lineal: 
-
-\[
-SNR_{\text{lineal}} = 10^{\frac{SNR_{\text{dB}}}{10}}
-\]
-
-Para \( SNR = 20 \) dB:
-
-\[
-SNR_{\text{lineal}} = 10^{\frac{20}{10}} = 10^2 = 100
-\]
-
-#### 2. Sustituir en la ecuación de Shannon: 
-
-\[
-C = 500 \times 10^6 \times \log_2(1 + 100)
-\]
-
-Aproximando \( \log_2(101) \approx 6.658 \):
-
-\[
-C = 500 \times 10^6 \times 6.658
-\]
-
-\[
-C \approx 3.329 \times 10^9 \text{ bps} = 3.329 \text{ Gbps}
-\]
+2. **Aplicar la ecuación de Shannon**  
+   - **C = 500 × 10⁶ × log₂(101)**  
+   - Como **log₂(101) ≈ 6.658**, entonces:  
+   - **C ≈ 500 × 10⁶ × 6.658**  
+   - **C ≈ 3.329 × 10⁹ bps = 3.329 Gbps**  
 
 ---
 
-## Pregunta 8: Ubicación de Portadoras para Eficiencia Espectral 
+## Pregunta 8: Ubicación de Portadoras para Eficiencia Espectral  
 
-Dado que en un sistema de comunicación la primera portadora se encuentra a **1.2 GHz** y 
-el ancho de banda en banda base de cada canal es de **300 MHz**, determina: 
+Dado que la primera portadora está en **1.2 GHz** y el ancho de banda en banda base de cada canal es de **300 MHz**, se determina lo siguiente:  
 
-1. **Frecuencia de la portadora anterior**  
-   \[
-   1.2 \text{ GHz} - 300 \text{ MHz} = 0.9 \text{ GHz}
-   \]
+- **Frecuencia de la portadora anterior:**  
+  - **1.2 GHz - 300 MHz = 0.9 GHz**  
 
-2. **Frecuencia de la portadora posterior**  
-   \[
-   1.2 \text{ GHz} + 300 \text{ MHz} = 1.5 \text{ GHz}
-   \]
+- **Frecuencia de la portadora posterior:**  
+  - **1.2 GHz + 300 MHz = 1.5 GHz**  
 
-### Importancia de la Ubicación de Portadoras:
-
-- Evita solapamiento de canales para minimizar interferencias. 
-- Maximiza el uso del espectro al colocar portadoras eficientemente. 
-- Permite **multiplexación por división de frecuencia (FDM)**. 
+### Importancia de la Ubicación de Portadoras  
+- Evita solapamiento de canales y minimiza interferencias.  
+- Permite un uso más eficiente del espectro.  
+- Se utiliza en **multiplexación por división de frecuencia (FDM)**.  
 
 ---
 
-## Pregunta 9: Identificación de Modulación en Función del BER 
+## Pregunta 9: Identificación de Modulación en Función del BER  
 
-Se sabe que la robustez ante el ruido de una modulación depende del número de 
-símbolos por baudio, de manera que:
+La robustez ante el ruido depende del número de símbolos por baudio.  
 
-- **BPSK (2-QAM)** es la más robusta. 
-- **QPSK (4 símbolos)** ofrece el doble de eficiencia que BPSK. 
-- A medida que se incrementa el número de símbolos (**16-QAM, 64-QAM, 256-QAM**), 
-  la eficiencia aumenta pero la tolerancia al ruido disminuye. 
+- **BPSK (2-QAM)** → Más robusta  
+- **QPSK (4 símbolos)** → Doble de eficiencia que BPSK  
+- **16-QAM, 64-QAM, 256-QAM** → Mayor eficiencia, pero menor tolerancia al ruido  
 
-### Orden de robustez ante el ruido (de mayor a menor): 
+### Orden de robustez ante el ruido (de mayor a menor):  
 
-1. **BPSK (2 símbolos) → Más robusta**
-2. **QPSK (4 símbolos)**
-3. **16-QAM (16 símbolos)**
-4. **64-QAM (64 símbolos)**
-5. **256-QAM (256 símbolos) → Menos robusta**
+1. **BPSK (2 símbolos)**  
+2. **QPSK (4 símbolos)**  
+3. **16-QAM (16 símbolos)**  
+4. **64-QAM (64 símbolos)**  
+5. **256-QAM (256 símbolos)**  
 
-**Conclusiones:**
-- **Más símbolos = mayor eficiencia, pero más sensibilidad al ruido.**  
+### Conclusiones  
+- A mayor cantidad de símbolos, mayor eficiencia pero menor robustez.  
 - **BPSK** es la más resistente porque tiene solo dos símbolos bien separados.  
-- **QPSK** duplica la eficiencia de **BPSK** sin perder mucha robustez.  
-- **16-QAM, 64-QAM y 256-QAM** aumentan la velocidad, pero necesitan alta SNR para evitar errores.  
+- **QPSK** es un equilibrio entre eficiencia y robustez.  
+- **16-QAM, 64-QAM y 256-QAM** requieren alta SNR para evitar errores.  
 
 ---
 
-## Pregunta 10: Eficiencia del Sistema de Encapsulamiento 
+## Pregunta 10: Eficiencia del Sistema de Encapsulamiento  
 
-Considera un sistema de encapsulamiento con la siguiente configuración:
+Dado un sistema con la siguiente configuración:  
 
-- **Capa 5:** Envía un bloque de datos de **1.5 Kbytes** (1 Kbyte = 1024 bytes). 
-- **Capas 4 y 3:** Cada una añade una cabecera de **40 bytes**. 
-- **Capa 2:** Permite el envío de tramas de **400 bytes** como máximo. 
-- **Capa 1:** Por cada 2 bytes de datos, se añaden: 
-  - **8 bits (1 byte) de inicio**  
+- **Capa 5:** Bloque de datos de **1.5 Kbytes** (1 Kbyte = 1024 bytes).  
+- **Capas 4 y 3:** Cada una añade **40 bytes** de cabecera.  
+- **Capa 2:** Tramas de **400 bytes máximo**.  
+- **Capa 1:** Por cada **2 bytes de datos**, se añaden:  
+  - **1 byte de inicio**  
   - **1 byte de parada**  
-  - **8 bits (1 byte) de CRC**  
+  - **1 byte de CRC**  
 
-### Cálculos:
+### Cálculos  
 
-#### a) **Tamaño total del mensaje después de las cabeceras de Capa 4 y 3**  
-\[
-T_{\text{mensaje}} = 1536 + 40 + 40 = 1616 \text{ bytes}
-\]
+1. **Tamaño total del mensaje después de las cabeceras de Capa 4 y 3:**  
+   - **T_mensaje = 1536 + 40 + 40 = 1616 bytes**  
 
-#### b) **Número de tramas de 400 bytes**  
-Cada trama puede contener **400 bytes**, pero debemos considerar las cabeceras:
+2. **Número de tramas de 400 bytes:**  
+   - **1616 / 400 = 4.04**, lo que significa que se requieren **5 tramas**  
 
-\[
-\frac{1616}{400} = 4.04 \Rightarrow 5 \text{ tramas necesarias}
-\]
+3. **Sobrecarga de Capa 1:**  
+   - Cada **2 bytes de datos** se convierten en **3 bytes** debido a los bits extra.  
+   - Datos reales en una trama de 400 bytes:  
+     - **(400 / 3) × 2 = 267 bytes de datos**  
+   - Sobrecarga por trama:  
+     - **400 - 267 = 133 bytes de sobrecarga**  
+   - **Total de sobrecarga:**  
+     - **133 × 5 = 665 bytes**  
 
-#### c) **Sobrecarga de Capa 1**  
+4. **Eficiencia del sistema:**  
+   - **Eficiencia = (Datos útiles / Total de datos) × 100**  
+   - **Eficiencia = (1536 / (1536 + 665)) × 100**  
+   - **Eficiencia = (1536 / 2201) × 100**  
+   - **Eficiencia ≈ 69.8%**  
 
-Cada **2 bytes de datos** → **3 bytes adicionales**  
-
-- **Cada trama tiene 400 bytes**  
-- **Datos por trama**:  
-  \[
-  \frac{400}{3} \times 2 = 267 \text{ bytes}
-  \]
-- **Sobrecarga por trama**:  
-  \[
-  400 - 267 = 133 \text{ bytes}
-  \]
-- **Total de sobrecarga**:  
-  \[
-  133 \times 5 = 665 \text{ bytes}
-  \]
-
-#### d) **Eficiencia del Sistema**  
-
-\[
-\text{Eficiencia} = \left( \frac{\text{Datos Útiles}}{\text{Total de Datos}} \right) \times 100
-\]
-
-\[
-\text{Eficiencia} = \left( \frac{1536}{1536 + 665} \right) \times 100
-\]
-
-\[
-\text{Eficiencia} = \left( \frac{1536}{2201} \right) \times 100
-\]
-
-\[
-\text{Eficiencia} \approx 69.8\%
-\]
 
 
  
